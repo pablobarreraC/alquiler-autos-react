@@ -1,7 +1,9 @@
 import Header from "./components/Header"
 import Autos from "./components/Autos"
 import Renta from "./components/Renta";
-
+import { Routes, Route } from "react-router-dom";
+import  Layout from "./components/Layout";
+import ListarAutos from "./components/ListarAutos";
 function App() {
   const carros=[
     { modelo:'Sentra-2020', 
@@ -28,13 +30,24 @@ function App() {
   ];
 
   return (
-    <div className="general">
-      <Header/>
-      <Autos 
-        listCarros={carros}
-      />
-      
+    <div>
+      <h1>Routes</h1>
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+        <Route path="/" element={<Header/>}/>
+        <Route path="autos" element={<Autos/>}/>
+        <Route path="listarAutos" element={<ListarAutos/>}/>
+        <Route path="renta" element={<Renta/>}/>
+        </Route>
+      </Routes>
     </div>
+   // <div className="general">
+   //   <Header/>
+   //   <Autos 
+   //     listCarros={carros}
+    //  />
+      
+    //</div>
   )
 }
 
